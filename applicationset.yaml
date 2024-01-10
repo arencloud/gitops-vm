@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: gitops-vm
+spec:
+  generators:
+    - clusters:
+        selector:
+          matchLabels:
+            argocd.argoproj.io/secret-type: cluster
+  template:
+    metadata:
+      name: "{{nameNormalized}}-gitops-vm"
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/arencloud/gitops-vm.git
+        targetRevision: HEAD
+        path: "kustomize/{{metadata.labels.env}}"
+        kustomize:
+          commonAnnotations:
+            managed-cluster: "{{nameNormalized}}"
+      destination:
+        server: "{{server}}"
+        namespace: openshift-cnv
+      syncPolicy:
+        automated:
+          selfHeal: true
+          prune: true
