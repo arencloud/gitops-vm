@@ -57,7 +57,7 @@ spec:
           disks:
             - disk:
                 bus: virtio
-              name: fedora-gitops1
+              name: fedora-gitops
             - disk:
                 bus: virtio
               name: cloudinitdisk
