@@ -4,6 +4,9 @@ kind: Kustomization
 bases:
   - ../base
 
+resources:
+  - ../../base
+
 namePrefix: prod-
 
 #patches:
