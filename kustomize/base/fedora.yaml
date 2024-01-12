@@ -33,10 +33,10 @@ spec:
           resources:
             requests:
               storage: 30Gi
-        source:
-          pvc:
-            name: fedora-custom
-            namespace: openshift-virtualization-os-images
+        sourceRef:
+          kind: DataSource
+          name: fedora
+          namespace: openshift-virtualization-os-images
   running: true
   template:
     metadata:
