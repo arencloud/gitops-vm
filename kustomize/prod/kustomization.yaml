@@ -6,8 +6,14 @@ resources:
 
 patches:
   - patch: |
-     - op: add
+     - op: replace
        path: /spec/template/spec/domain/memory/guest
-       value: 2Gi
+       value: 4Gi
+    target:
+      kind: VirtualMachine
+  - patch: |
+      - op: replace
+        path: /spec/template/spec/domain/resources/requests/memory
+        value: 4Gi
     target:
       kind: VirtualMachine
