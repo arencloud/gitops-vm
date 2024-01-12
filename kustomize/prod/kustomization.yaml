@@ -5,7 +5,7 @@ bases:
   - ../base
 
 resources:
-  - ../../base
+  - ../base
 
 namePrefix: prod-
 
