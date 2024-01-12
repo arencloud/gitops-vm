@@ -12,7 +12,7 @@ spec:
       source:
         repoURL: https://github.com/arencloud/gitops-vm.git
         targetRevision: HEAD
-        path: "kustomize/"
+        path: "kustomize/prod"
         kustomize:
           commonAnnotations:
             managed-cluster: "localcluster"
